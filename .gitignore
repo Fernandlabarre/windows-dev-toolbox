@@ -1,0 +1,28 @@
+# Secrets et identifiants
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+secrets*.json
+credentials*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.bak
+node_modules/
+graphify-out/
+.codex-tmp/
+
+# Archives
+*.zip
+*.tar.gz

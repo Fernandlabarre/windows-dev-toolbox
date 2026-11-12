@@ -1,0 +1,56 @@
+{
+  "name": "scripts-perso-context",
+  "displayName": "Scripts-Perso - Contexte IDE",
+  "description": "Ouvre les outils Scripts-Perso avec le contexte actif de Visual Studio Code.",
+  "publisher": "fernandlabarre",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Fernand Labarre",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fernandlabarre/windows-dev-toolbox.git"
+  },
+  "homepage": "https://github.com/Fernandlabarre/windows-dev-toolbox#readme",
+  "bugs": {
+    "url": "https://github.com/Fernandlabarre/windows-dev-toolbox/issues"
+  },
+  "keywords": [
+    "developer-tools",
+    "powershell",
+    "vscode",
+    "windows",
+    "ollama"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:scriptsPerso.openToolsWithContext"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Scripts-Perso",
+      "properties": {
+        "scriptsPerso.ollamaModel": {
+          "type": "string",
+          "default": "qwen2.5-coder:7b",
+          "description": "Modèle Ollama local utilisé par l’assistant Scripts-Perso. Le modèle doit déjà être installé."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "scriptsPerso.openToolsWithContext",
+        "title": "Perso : ouvrir mes scripts avec le contexte IDE"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node --test test/context-utils.test.js"
+  },
+  "license": "UNLICENSED"
+}
