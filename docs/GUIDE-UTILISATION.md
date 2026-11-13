@@ -30,13 +30,33 @@ de code. Les fichiers sensibles connus sont exclus ou masqués avant d'être aff
 | Contexte projet | Produit un inventaire ou un export filtré sans envoyer de fichier sur le réseau. |
 | VS Code et Ollama | Transmet un contexte IDE filtré à un assistant local, sans historique de conversation. |
 
-## Démarrage rapide
+## Installation et premier lancement
+
+La boîte à outils est portable : elle n'utilise pas d'installateur et ne
+demande pas de droit administrateur pour son installation. Clone le dépôt dans
+le dossier où tu veux la conserver :
 
 ```powershell
 git clone https://github.com/Fernandlabarre/windows-dev-toolbox.git
 Set-Location -LiteralPath '.\windows-dev-toolbox'
-.\PowerShell\menu-scripts.ps1 -Project 'C:\chemin\vers\mon-projet'
+powershell.exe -NoProfile -ExecutionPolicy Bypass `
+  -File ".\PowerShell\menu-scripts.ps1" `
+  -Project "C:\chemin\vers\mon-projet"
 ```
+
+Le paramètre `-Project` désigne le projet à ouvrir dans le lanceur. Avec
+PowerShell 7, remplace `powershell.exe` par `pwsh.exe`. Le contournement de la
+stratégie d'exécution est limité à ce processus et ne modifie pas les réglages
+de Windows.
+
+Pour récupérer les versions suivantes :
+
+```powershell
+Set-Location -LiteralPath 'C:\chemin\vers\windows-dev-toolbox'
+git pull --ff-only
+```
+
+Pour retirer la boîte à outils, supprime son dossier.
 
 Les scripts restent indépendants du lanceur. Par exemple :
 
