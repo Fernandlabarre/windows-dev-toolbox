@@ -35,19 +35,47 @@ actions qui modifient un dépôt ou exécutent du code.
   interactives.
 - Exclusion ou masquage des fichiers et valeurs sensibles connus.
 
-## Essayer le lanceur
+## Installation et lancement
 
-Prérequis : Windows, Git et PowerShell. Python est nécessaire pour les outils
-d'export et d'analyse ; Ollama reste facultatif.
+Le projet est portable : il n'y a pas d'installateur et aucun droit
+administrateur n'est nécessaire pour l'installation. Il suffit de cloner le
+dépôt une fois dans le dossier de son choix.
+
+Prérequis : Windows, Git et Windows PowerShell 5.1 ou PowerShell 7. Python 3.9
+ou plus récent est nécessaire pour les outils d'export et d'analyse ; Ollama
+reste facultatif.
+
+### 1. Récupérer la boîte à outils
 
 ```powershell
 git clone https://github.com/Fernandlabarre/windows-dev-toolbox.git
 Set-Location -LiteralPath '.\windows-dev-toolbox'
-.\PowerShell\menu-scripts.ps1 -Project 'C:\chemin\vers\mon-projet'
 ```
+
+### 2. Ouvrir le lanceur sur un projet
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass `
+  -File ".\PowerShell\menu-scripts.ps1" `
+  -Project "C:\chemin\vers\mon-projet"
+```
+
+Le chemin donné à `-Project` est celui du projet sur lequel travailler, pas
+celui de la boîte à outils. Avec PowerShell 7, remplace `powershell.exe` par
+`pwsh.exe`. L'option `-ExecutionPolicy Bypass` vaut uniquement pour ce
+lancement et ne change pas la configuration de Windows.
 
 Le projet actif est toujours affiché en haut de la fenêtre. Chaque script peut
 aussi être lancé directement depuis un terminal.
+
+### 3. Mettre la boîte à outils à jour
+
+```powershell
+Set-Location -LiteralPath 'C:\chemin\vers\windows-dev-toolbox'
+git pull --ff-only
+```
+
+Pour retirer la boîte à outils, il suffit de supprimer son dossier.
 
 ## Organisation
 
